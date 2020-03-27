@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { createGlobalStyle } from 'styled-components'
+import * as Sentry from '@sentry/browser'
 
 import Theme from 'theme'
 
