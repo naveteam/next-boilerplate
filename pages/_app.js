@@ -43,7 +43,11 @@ const App = ({ Component, pageProps, image }) => (
         {...(image && {
           meta: [
             {
-              name: 'og:image',
+              property: 'og:image',
+              content: image
+            },
+            {
+              property: 'og:image:secure_url',
               content: image
             }
           ]
@@ -55,12 +59,12 @@ const App = ({ Component, pageProps, image }) => (
 )
 
 App.getInitialProps = async ({ ctx }) => {
-  console.log(ctx.query)
+  console.log(ctx.query, ctx.pathname)
   if (!ctx.query.image) {
     return {}
   }
 
-  return { image: ctx.query.image }
+  return { image: `https://cdn.musicadeestimacao.byspotify.com/${ctx.query.image}` }
 }
 
 export default App

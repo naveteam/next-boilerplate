@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import Head from 'next/head'
 import PropTypes from 'prop-types'
 
 const siteMetadata = {
@@ -35,10 +35,6 @@ const SEO = ({ description = '', lang = 'pt-br', meta = [], title }) => {
       property: 'og:type',
       content: 'website'
     },
-    {
-      property: 'og:url',
-      content: 'musicadeestimacao.byspotify.com'
-    },
     // {
     //   name: 'og:image',
     //   content: siteImage
@@ -67,10 +63,25 @@ const SEO = ({ description = '', lang = 'pt-br', meta = [], title }) => {
       name: 'keywords',
       content: ['spotify', 'musica']
     },
-    ...meta
+    ...meta,
+    {
+      property: 'og:image:width',
+      content: '640'
+    },
+    {
+      property: 'og:image:height',
+      content: '442'
+    }
   ]
 
-  return <Helmet htmlAttributes={{ lang }} title={siteTitle} meta={metaTags} />
+  return (
+    <Head>
+      <title>{siteTitle}</title>
+      {metaTags.map((metatag, index) => (
+        <meta key={index} {...metatag} />
+      ))}
+    </Head>
+  )
 }
 
 SEO.propTypes = {
