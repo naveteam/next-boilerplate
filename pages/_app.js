@@ -1,5 +1,8 @@
 import React, { Fragment } from 'react'
 import { createGlobalStyle } from 'styled-components'
+import * as Sentry from '@sentry/browser'
+
+import SEO from 'components/SEO'
 
 import Theme from 'theme'
 
@@ -31,13 +34,33 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-const App = ({ Component, pageProps }) => (
+const App = ({ Component, pageProps, image }) => (
   <Fragment>
+    {console.log(image)}
     <GlobalStyle />
     <Theme>
+      <SEO
+        {...(image && {
+          meta: [
+            {
+              name: 'og:image',
+              content: image
+            }
+          ]
+        })}
+      />
       <Component {...pageProps} />
     </Theme>
   </Fragment>
 )
+
+App.getInitialProps = async ({ ctx }) => {
+  console.log(ctx.query)
+  if (!ctx.query.image) {
+    return {}
+  }
+
+  return { image: ctx.query.image }
+}
 
 export default App
