@@ -1,6 +1,10 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 import * as Sentry from '@sentry/browser'
+
+import PageWrapper from 'components/PageWrapper'
+
+import AppProviders from 'context'
 
 import Theme from 'theme'
 
@@ -33,12 +37,14 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const App = ({ Component, pageProps }) => (
-  <Fragment>
+  <AppProviders>
     <GlobalStyle />
     <Theme>
-      <Component {...pageProps} />
+      <PageWrapper>
+        <Component {...pageProps} />
+      </PageWrapper>
     </Theme>
-  </Fragment>
+  </AppProviders>
 )
 
 export default App

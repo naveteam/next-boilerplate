@@ -4,13 +4,17 @@ import { Formik, Form, Field } from 'formik'
 import Row from 'components/Row'
 import Text from 'components/Text'
 
+import { useAuth } from 'hooks'
+
 const Login = () => {
+  const { login } = useAuth()
+
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
       onSubmit={async (values, { setSubmitting }) => {
         console.log(values)
-        // const response = await login(values)
+        const response = await login(values)
         console.log(response)
       }}
     >
