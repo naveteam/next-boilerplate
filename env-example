@@ -1,0 +1,3 @@
+API_URL=http://localhost:3000
+NOVE_ENV=development
+SENTRY_URL=some_url

@@ -1,4 +1,5 @@
 const withCSS = require('@zeit/next-css')
+require('dotenv').config()
 
 module.exports = withCSS({
   webpack: config => {
@@ -9,8 +10,8 @@ module.exports = withCSS({
     return config
   },
   env: {
-    API_URL: 'http://localhost:3000',
-    NOVE_ENV: 'development',
-    SENTRY_URL: 'some_url'
+    API_URL: process.env.API_URL,
+    NOVE_ENV: process.env.NODE_ENV,
+    SENTRY_URL: process.env.SENTRY_URL
   }
 })
