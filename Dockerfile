@@ -2,7 +2,7 @@ FROM node:alpine
 
 RUN mkdir -p /opt/app
 RUN apk add --no-cache libc6-compat
-ENV NODE_ENV production
+ENV PROCESS_NODE_ENV production
 ENV PORT 3000
 EXPOSE 3000
 

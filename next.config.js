@@ -11,7 +11,7 @@ module.exports = withCSS({
   },
   env: {
     API_URL: process.env.API_URL,
-    NOVE_ENV: process.env.NODE_ENV,
+    PROCESS_NODE_ENV: process.env.PROCESS_NODE_ENV,
     SENTRY_URL: process.env.SENTRY_URL
   }
 })

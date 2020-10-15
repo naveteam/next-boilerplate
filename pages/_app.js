@@ -27,11 +27,11 @@ button, a {
 }
 `
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.PROCESS_NODE_ENV === 'production') {
   Sentry.init({
     dsn: process.env.SENTRY_URL,
-    environment: process.env.NODE_ENV,
-    debug: process.env.NODE_ENV !== 'prodution',
+    environment: process.env.PROCESS_NODE_ENV,
+    debug: process.env.PROCESS_NODE_ENV !== 'prodution',
     release: `${name}@${version}`
   })
 }

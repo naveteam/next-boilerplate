@@ -11,7 +11,7 @@ const bootstrapAppData = async () => {
   }
 
   const user = await getUser()
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.PROCESS_NODE_ENV === 'production') {
     Sentry.configureScope(scope =>
       scope.setUser({
         // Adicionar outras informações relevantes do usuários
