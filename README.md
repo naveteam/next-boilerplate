@@ -54,7 +54,7 @@ Clonar esse repositório e executar o comando `yarn` para instalar as dependênc
 
 ## Sentry
 
-O Sentry somente estará ativo se `NODE_ENV=production`.
+O Sentry somente estará ativo se `PROCESS_NODE_ENV=production`.
 
 Para configurar o Sentry corretamente, siga as instruções abaixo:
 
