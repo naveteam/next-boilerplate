@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import { getToken, PUBLIC_ROUTES } from 'helpers'
 
-export const __API__ = process.env.API_URL
+export const __API__ = process.env.NEXT_PUBLIC_API_URL
 
 const defaultOptions = {
   baseURL: __API__

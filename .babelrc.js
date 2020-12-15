@@ -5,7 +5,7 @@ const commonPlugins = [
 ]
 const productionPlugins = [['transform-remove-console', { exclude: ['error', 'warn'] }]]
 const plugins =
-  process.env.PROCESS_NODE_ENV === 'production' ? [...commonPlugins, ...productionPlugins] : [...commonPlugins]
+  process.env.NEXT_PUBLIC_NODE_ENV === 'production' ? [...commonPlugins, ...productionPlugins] : [...commonPlugins]
 
 module.exports = {
   presets: ['next/babel'],
