@@ -1,4 +1,4 @@
-import * as Sentry from '@sentry/browser'
+import * as Sentry from '@sentry/node'
 
 import { getUser } from 'services/auth'
 import { getToken } from 'helpers'
@@ -11,7 +11,8 @@ const bootstrapAppData = async () => {
   }
 
   const user = await getUser()
-  if (process.env.PROCESS_NODE_ENV === 'production') {
+
+  if (process.env.NEXT_PUBLIC_NODE_ENV === 'production') {
     Sentry.configureScope(scope =>
       scope.setUser({
         // Adicionar outras informações relevantes do usuários

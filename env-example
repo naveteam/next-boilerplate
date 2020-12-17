@@ -1,3 +1,0 @@
-API_URL=http://localhost:3000
-PROCESS_NODE_ENV=development
-SENTRY_URL=some_url

@@ -1,6 +1,6 @@
 import React from 'react'
 import { createGlobalStyle } from 'styled-components'
-import * as Sentry from '@sentry/browser'
+import * as Sentry from '@sentry/node'
 
 import PageWrapper from 'components/PageWrapper'
 
@@ -27,11 +27,11 @@ button, a {
 }
 `
 
-if (process.env.PROCESS_NODE_ENV === 'production') {
+if (process.env.NEXT_PUBLIC_NODE_ENV === 'production') {
   Sentry.init({
-    dsn: process.env.SENTRY_URL,
-    environment: process.env.PROCESS_NODE_ENV,
-    debug: process.env.PROCESS_NODE_ENV !== 'prodution',
+    dsn: process.env.NEXT_PUBLIC_SENTRY_URL,
+    environment: process.env.NEXT_PUBLIC_NODE_ENV,
+    debug: process.env.NEXT_PUBLIC_NODE_ENV !== 'production',
     release: `${name}@${version}`
   })
 }
